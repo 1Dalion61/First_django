@@ -18,3 +18,14 @@ def time_page(request):
         "current_time": now.strftime("%H/%M/%S")
     }
     return render(request, "time.html", context)
+
+def calc_page(request):
+    a = int(request.GET.get('a', 0))
+    b = int(request.GET.get('b', 0))
+    context={
+        "title": 'Курс "Промышленное программирование"',
+        "a": a,
+        "b": b,
+        "sva": a + b
+    }
+    return render(request, "calc.html", context)
